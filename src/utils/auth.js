@@ -3,9 +3,9 @@ const Auth = {
     return `Bearer ${key}`;
   },
 
-  authHeader(accessToken, userAgent) {
+  authWithBasicHeader(accessToken, userAgent, contentType) {
     return {
-      'Content-Type': 'application/json',
+      'Content-Type': contentType,
       'Authorization': Auth.bearerAuthHeader(accessToken),
       'User-Agent': userAgent,
     };
