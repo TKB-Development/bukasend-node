@@ -3,6 +3,7 @@ import { BukasendOptions } from "./bukasend_opts";
 import { TokenService } from "./authorization";
 import { InfoAddressesService } from "./coverage_area";
 import { CouriersService } from "./courir_configuration";
+import { TransactionsService } from "./report";
 
 declare class Bukasend {
   constructor(opts: BukasendOptions);
@@ -10,6 +11,7 @@ declare class Bukasend {
   Token: typeof TokenService;
   InfoAddresses: typeof InfoAddressesService;
   Couriers: typeof CouriersService;
+  Transactions: typeof TransactionsService;
 }
 
 export = Bukasend;
