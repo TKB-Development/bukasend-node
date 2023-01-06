@@ -2,7 +2,7 @@ const Errors = require('./errors');
 const { TokenService } = require('./authorization');
 const { InfoAddressesService } = require('./coverage_area');
 const { CouriersService } = require('./courir_configuration');
-const { TransactionsService } = require('./report');
+const { TransactionsService } = require('./transaction');
 
 function Bukasend(options) {
   let {

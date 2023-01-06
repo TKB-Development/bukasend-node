@@ -3,7 +3,7 @@ import { BukasendOptions } from "./bukasend_opts";
 import { TokenService } from "./authorization";
 import { InfoAddressesService } from "./coverage_area";
 import { CouriersService } from "./courir_configuration";
-import { TransactionsService } from "./report";
+import { TransactionsService } from "./transaction";
 
 declare class Bukasend {
   constructor(opts: BukasendOptions);
