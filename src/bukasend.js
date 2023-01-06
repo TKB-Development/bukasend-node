@@ -1,5 +1,7 @@
 const Errors = require('./errors');
 const { TokenService } = require('./authorization');
+const { InfoAddressesService } = require('./coverage_area');
+const { CouriersService } = require('./courir_configuration');
 
 function Bukasend(options) {
   let {
@@ -18,6 +20,8 @@ function Bukasend(options) {
   this.opts = { clientId, clientSecret, userAgent, accessToken, baseURL, baseAuthURL };
 
   this.Token = TokenService._constructorWithOpts(this.opts);
+  this.InfoAddresses = InfoAddressesService._constructorWithOpts(this.opts);
+  this.Couriers = CouriersService._constructorWithOpts(this.opts);
 }
 
 Bukasend.Errors = Errors;
