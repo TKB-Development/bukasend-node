@@ -177,6 +177,63 @@ Transactions.prototype.cancelTransaction = function(data) {
   });
 };
 
+Transactions.prototype.getTransactionById = function(data) {
+  return promWithJsErr((resolve, reject) => {
+    const compulsoryFields = ['id'];
+    if (!data.id) {
+      compulsoryFields.push('example: 1');
+    }
+    Validate.rejectOnMissingFields(compulsoryFields, data, reject);
+
+    fetchWithHTTPErr(`${this.API_ENDPOINT}/_partners/open-shipments/transactions/${data.id}`, {
+      method: 'GET',
+      headers: Auth.authWithBasicHeader(this.opts.accessToken, this.opts.userAgent, 'application/json'),
+    })
+      .then(resolve)
+      .catch(reject);
+  });
+}
+
+Transactions.prototype.getTransactionByPartnerTransactionId = function(data) {
+  return promWithJsErr((resolve, reject) => {
+    const compulsoryFields = ['id', 'is_partner_transaction_id'];
+    if (!data.id) {
+      compulsoryFields.push('example: 1');
+    }
+    if (!data.is_partner_transaction_id) {
+      compulsoryFields.push('example: true or false');
+    }
+    Validate.rejectOnMissingFields(compulsoryFields, data, reject);
+
+    fetchWithHTTPErr(`${this.API_ENDPOINT}/_partners/open-shipments/transactions/${data.id}?is_partner_transaction_id=${data.is_partner_transaction_id}`, {
+      method: 'GET',
+      headers: Auth.authWithBasicHeader(this.opts.accessToken, this.opts.userAgent, 'application/json'),
+    })
+      .then(resolve)
+      .catch(reject);
+  });
+}
+
+Transactions.prototype.getTransactionShippingHistory = function(data) {
+  return promWithJsErr((resolve, reject) => {
+    const compulsoryFields = ['id', 'booking_code'];
+    if (!data.id) {
+      compulsoryFields.push('example: 1');
+    }
+    if (!data.booking_code) {
+      compulsoryFields.push('example: JT1238234513123');
+    }
+    Validate.rejectOnMissingFields(compulsoryFields, data, reject);
+
+    fetchWithHTTPErr(`${this.API_ENDPOINT}/_partners/open-shipments/transactions/${data.id}/shipping-info?booking_code=${data.booking_code}`, {
+      method: 'GET',
+      headers: Auth.authWithBasicHeader(this.opts.accessToken, this.opts.userAgent, 'application/json'),
+    })
+      .then(resolve)
+      .catch(reject);
+  });
+}
+
 Transactions.prototype.getReports = function(data) {
   return promWithJsErr((resolve, reject) => {
 

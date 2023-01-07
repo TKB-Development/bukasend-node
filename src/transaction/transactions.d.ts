@@ -53,5 +53,8 @@ export = class Transactions {
   }): Promise<object>;
   createBookingCode(data: {id: number}): Promise<object>;
   cancelTransaction(data: {id: number}): Promise<object>;
+  getTransactionById(data: {id: number}): Promise<object>;
+  getTransactionByPartnerTransactionId(data: {id: number, is_partner_transaction_id: boolean}): Promise<object>;
+  getTransactionShippingHistory(data: {id: number, booking_code: string}): Promise<object>;
   getReports(): Promise<object>;
 }

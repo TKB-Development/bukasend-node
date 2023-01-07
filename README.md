@@ -17,12 +17,10 @@
 #### Transactions
 - [X] create Transactions (You can request to create a transaction after finishing the area and courier configuration)
 - [X] Cancellation (Cancel your BukaSend transaction so the delivery state is align with the one existed in the partner platform/app)
-- [X] Retrieve Transaction Report
+- [X] Transaction Report (Retrieve Transaction Report Notes)
 
 #### Tracking
-- [ ] Track by ID (Get information for each of your latest transaction status by using this API)
-- [ ] Track by Partner Transaction ID (Get information for each of your latest transactions by using the Transaction ID)
-- [ ] Track Shipping History (Get each of your BukaSend transaction shipping history by using this API)
-
-#### Others
-- [ ] Generate Booking Code Manually
+- [X] Track by ID (Get information for each of your latest transaction status by using this API)
+- [X] Track by Partner Transaction ID (Get information for each of your latest transactions by using the Transaction ID)
+- [X] Track Shipping History (Get each of your BukaSend transaction shipping history by using this API)
+- [X] Generate Booking Code Manually (Used when the order code is still not generated after 1 minute)

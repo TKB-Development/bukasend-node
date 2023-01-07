@@ -77,6 +77,44 @@ transactions.cancelTransaction({
     process.exit(1);
   });
 
+transactions.getTransactionById({
+  'id': '1',
+})
+  .then(data => {
+    console.log(data);
+    return data;
+  })
+  .catch(e => {
+    console.error(e);
+    process.exit(1);
+  });
+
+transactions.getTransactionByPartnerTransactionId({
+  'id': 'TRX-12345',
+  'is_partner_transaction_id': true,
+})
+  .then(data => {
+    console.log(data);
+    return data;
+  })
+  .catch(e => {
+    console.error(e);
+    process.exit(1);
+  });
+
+transactions.getTransactionShippingHistory({
+  'id': '1',
+  'booking_code': 'JT1238234513123',
+})
+  .then(data => {
+    console.log(data);
+    return data;
+  })
+  .catch(e => {
+    console.error(e);
+    process.exit(1);
+  });
+
 transactions.getReports()
   .then(data => {
     console.log(data);
