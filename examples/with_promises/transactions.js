@@ -52,24 +52,37 @@ transactions.createTransaction({
     process.exit(1);
   });
 
-// transactions.cancelTransaction({
-//   id: "TRX-12345"
-// })
-//   .then(data => {
-//     console.log(data);
-//     return data;
-//   })
-//   .catch(e => {
-//     console.error(e);
-//     process.exit(1);
-//   });
-//
-// transactions.getReports()
-//   .then(data => {
-//     console.log(data);
-//     return data;
-//   })
-//   .catch(e => {
-//     console.error(e);
-//     process.exit(1);
-//   });
+transactions.createBookingCode({
+  transaction_id: "TRX-12345",
+  }
+)
+  .then(data => {
+    console.log(data);
+    return data;
+  })
+  .catch(e => {
+    console.error(e);
+    process.exit(1);
+  });
+
+transactions.cancelTransaction({
+  id: "TRX-12345"
+})
+  .then(data => {
+    console.log(data);
+    return data;
+  })
+  .catch(e => {
+    console.error(e);
+    process.exit(1);
+  });
+
+transactions.getReports()
+  .then(data => {
+    console.log(data);
+    return data;
+  })
+  .catch(e => {
+    console.error(e);
+    process.exit(1);
+  });

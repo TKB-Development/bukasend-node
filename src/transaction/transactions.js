@@ -140,6 +140,26 @@ Transactions.prototype.createTransaction = function(data) {
   });
 };
 
+Transactions.prototype.createBookingCode = function(data) {
+  return promWithJsErr((resolve, reject) => {
+    const compulsoryFields = ['transaction_id'];
+    if (!data.transaction_id) {
+      compulsoryFields.push('example: TRX-12345');
+    }
+    Validate.rejectOnMissingFields(compulsoryFields, data, reject);
+
+    fetchWithHTTPErr(`${this.API_ENDPOINT}/_partners/open-shipments/transactions/generate-booking-code`, {
+      method: 'POST',
+      headers: Auth.authWithBasicHeader(this.opts.accessToken, this.opts.userAgent, 'application/json'),
+      body: JSON.stringify({
+        transaction_id: data.transaction_id,
+      })
+    })
+      .then(resolve)
+      .catch(reject);
+  });
+};
+
 Transactions.prototype.cancelTransaction = function(data) {
   return promWithJsErr((resolve, reject) => {
     const compulsoryFields = ['id'];

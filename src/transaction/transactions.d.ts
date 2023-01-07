@@ -51,6 +51,7 @@ export = class Transactions {
     total_cod_price?: number,
     admin_fee_paid_by?: string,
   }): Promise<object>;
+  createBookingCode(data: {id: number}): Promise<object>;
   cancelTransaction(data: {id: number}): Promise<object>;
   getReports(): Promise<object>;
 }
